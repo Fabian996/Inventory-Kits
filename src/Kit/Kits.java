@@ -1,5 +1,6 @@
 package de.Fabian.Kit;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -12,6 +13,10 @@ import org.bukkit.potion.PotionEffectType;
 
 public class Kits implements Listener	
 {
+	
+	public static final String Prefix = ChatColor.WHITE + "[" + ChatColor.GREEN+ "InvKits" + ChatColor.WHITE + "] ";
+
+	
 	@EventHandler
 	public void Inventory(InventoryClickEvent event)
 	{	
@@ -61,7 +66,7 @@ public class Kits implements Listener
 				p.getInventory().setLeggings(Hose);
 				p.getInventory().setBoots(Schuhe);
 				p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 4999, 5));
-				p.sendMessage("§2 Du hast das Krieger Kit gewählt");
+				p.sendMessage(Prefix + "§2 Du hast das Krieger Kit gewählt");
 				
 				event.getView().close();
 				
@@ -72,7 +77,7 @@ public class Kits implements Listener
 					p.getInventory().addItem(Axt);
 					p.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 4999, 5));
 					p.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE, 6));
-					p.sendMessage("§b Du hast das Diamond-Miner Kit gewählt");
+					p.sendMessage(Prefix + "§b Du hast das Diamond-Miner Kit gewählt");
 					
 					event.getView().close();
 					
@@ -85,7 +90,7 @@ public class Kits implements Listener
 					p.getInventory().addItem(Hose1);
 					p.getInventory().addItem(Schuhe1);
 					p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 4999, 1));
-					p.sendMessage("§6 Du hast das Schützen Kit gewählt");
+					p.sendMessage(Prefix + "§6 Du hast das Schützen Kit gewählt");
 					
 					event.getView().close();
 					} 
