@@ -1,0 +1,9 @@
+name: InvKits
+version: 1.0
+main: de.Fabian.Kits.main.Main
+author: Fabian996
+
+commands:
+  invkits:
+    description: Show you all Kits
+    usage: <invkits>
