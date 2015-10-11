@@ -8,13 +8,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-public class Compass implements Listener 
+public class Blaze implements Listener 
 {
 	@EventHandler
 	public void onCompassClick(PlayerInteractEvent e)
 	{
 		if(e.getAction() == Action.RIGHT_CLICK_AIR){
-			if(e.getPlayer().getItemInHand().getType() == Material.COMPASS){
+			if(e.getPlayer().getItemInHand().getType() == Material.BLAZE_POWDER){
 					Player p = e.getPlayer();
 					
 					Bukkit.dispatchCommand(p.getPlayer(), "invkits");	
