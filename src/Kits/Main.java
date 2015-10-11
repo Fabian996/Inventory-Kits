@@ -11,7 +11,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import de.Fabian.Kit.Kits;
-import de.Fabian.Kit.EventHandler.Compass;
+import de.Fabian.Kit.EventHandler.Blaze;
+import de.Fabian.Kits.main.Updater;
 
 public class Main extends JavaPlugin 
 {
@@ -26,7 +27,16 @@ public class Main extends JavaPlugin
 	{
 		System.out.println("[InvKits] aktivert");
 		getServer().getPluginManager().registerEvents(new Kits(), this);
-		getServer().getPluginManager().registerEvents(new Compass(), this);
+		getServer().getPluginManager().registerEvents(new Blaze(), this);
+		
+		// Updater
+		 Updater updater = new Updater(this, 56140, getFile(), Updater.UpdateType.DEFAULT, true);
+
+		    if (updater.getResult() == Updater.UpdateResult.UPDATE_AVAILABLE)
+		    {System.out.println("[Inventory Kit] New version avaible!");
+		    } else if (updater.getResult() == Updater.UpdateResult.NO_UPDATE)
+		    {System.out.println("[Inventory Kit]No new version avaible!");
+		    }
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String lable, String[] args)
@@ -39,7 +49,7 @@ public class Main extends JavaPlugin
 					
 			ItemStack Dia = new ItemStack(Material.DIAMOND);
 			ItemMeta Diameta = Dia.getItemMeta();
-			Diameta.setDisplayName(ChatColor.AQUA + "Diamond Miner");
+			Diameta.setDisplayName(ChatColor.DARK_AQUA + "Diamond Miner");
 			Dia.setItemMeta(Diameta);
 			
 			ItemStack Schwert = new ItemStack(Material.DIAMOND_SWORD);
@@ -51,12 +61,18 @@ public class Main extends JavaPlugin
 			ItemMeta Bogenmeta = Bogen.getItemMeta();
 			Bogenmeta.setDisplayName(ChatColor.GOLD + "Schütze");
 			Bogen.setItemMeta(Bogenmeta);
+						
+			ItemStack Technik = new ItemStack(Material.REDSTONE);
+			ItemMeta Technikmeta = Technik.getItemMeta();
+			Technikmeta.setDisplayName(ChatColor.BLUE + "Techniker");
+			Technik.setItemMeta(Technikmeta);
 			
-			//Comming Soon			
-			ItemStack Cube = new ItemStack(Material.NETHER_STAR);
-			ItemMeta Cubemeta = Cube.getItemMeta();
-			Cubemeta.setDisplayName("§4 Comming Soon");
-			Cube.setItemMeta(Cubemeta);
+			ItemStack Angel = new ItemStack(Material.FISHING_ROD);
+			ItemMeta Angelmeta = Angel.getItemMeta();
+			Angelmeta.setDisplayName(ChatColor.YELLOW + "Angler");
+			Angel.setItemMeta(Angelmeta);
+			
+			//Comming Soon	
 			
 			ItemStack Cube2 = new ItemStack(Material.NETHER_STAR);
 			ItemMeta Cubemeta2 = Cube2.getItemMeta();
@@ -68,11 +84,7 @@ public class Main extends JavaPlugin
 			Cubemeta3.setDisplayName("§4 Comming Soon");
 			Cube3.setItemMeta(Cubemeta3);
 			
-			ItemStack Cube4 = new ItemStack(Material.NETHER_STAR);
-			ItemMeta Cubemeta4 = Cube4.getItemMeta();
-			Cubemeta4.setDisplayName("§4 Comming Soon");
-			Cube4.setItemMeta(Cubemeta4);
-			
+
 			
 			//Glass Pane
 			ItemStack Glasschreibe = new ItemStack(Material.STAINED_GLASS_PANE);
@@ -89,11 +101,11 @@ public class Main extends JavaPlugin
 			
 			inv.setItem(0, Glasschreibe);
 			inv.setItem(1, Schwert);
-			inv.setItem(2, Cube);
+			inv.setItem(2, Technik);
 			inv.setItem(3, Cube2);
 			inv.setItem(4, Dia);
 			inv.setItem(5, Cube3);
-			inv.setItem(6, Cube4);
+			inv.setItem(6, Angel);
 			inv.setItem(7, Bogen);
 			inv.setItem(8, Glasschreibe1);
 
