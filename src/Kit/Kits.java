@@ -45,7 +45,6 @@ public class Kits implements Listener
 			Schaufel.addEnchantment(Enchantment.DIG_SPEED, 5);
 			Axt.addEnchantment(Enchantment.DIG_SPEED, 5);
 			
-			
 			//ItemStack Schütze
 			ItemStack Bogen = new ItemStack(Material.BOW);
 			ItemStack Pfeil = new ItemStack(Material.ARROW);
@@ -57,6 +56,11 @@ public class Kits implements Listener
 			ItemStack Brust1 = new ItemStack(Material.CHAINMAIL_CHESTPLATE);
 			ItemStack Hose1 = new ItemStack(Material.CHAINMAIL_LEGGINGS);
 			ItemStack Schuhe1 = new ItemStack(Material.CHAINMAIL_BOOTS);
+			
+			//ItemStack
+			ItemStack Angel = new ItemStack(Material.FISHING_ROD);
+			Angel.addEnchantment(Enchantment.LURE, 2);
+			Angel.addEnchantment(Enchantment.LUCK, 2);
 			
 			// Krieger Kit
 			if(event.getCurrentItem().getType() == Material.DIAMOND_SWORD){
@@ -93,7 +97,28 @@ public class Kits implements Listener
 					p.sendMessage(Prefix + "§6 Du hast das Schützen Kit gewählt");
 					
 					event.getView().close();
-					} 
+					
+				} //Techniker Kit
+				else if(event.getCurrentItem().getType() == Material.REDSTONE){
+					p.getInventory().addItem(new ItemStack(Material.REDSTONE, 256));
+					p.getInventory().addItem(new ItemStack(Material.PISTON_BASE, 64));
+					p.getInventory().addItem(new ItemStack(Material.PISTON_STICKY_BASE, 32));
+					p.getInventory().addItem(new ItemStack(Material.REDSTONE_TORCH_ON, 64));
+					p.getInventory().addItem(new ItemStack(Material.WOOD_BUTTON, 16));
+					p.getInventory().addItem(new ItemStack(Material.REDSTONE_LAMP_OFF, 16));
+					p.sendMessage(Prefix + "§c Du hast das Techniker Kit gewählt");
+					
+					event.getView().close();
+					
+				}//Angler Kit
+				else if(event.getCurrentItem().getType() == Material.FISHING_ROD){
+					p.getInventory().addItem(Angel);
+					p.getInventory().addItem(new ItemStack(Material.BAKED_POTATO, 64));
+					p.sendMessage(Prefix + "§e Du hast das Angler Kit gewählt");
+					
+
+					event.getView().close();
+				}
 			}
 	
 		}
